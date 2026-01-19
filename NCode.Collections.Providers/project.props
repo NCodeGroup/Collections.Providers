@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <PropertyGroup>
+    <Description>Default implementations for dynamic, change-aware collection providers. Includes static, observable, composite, and periodic polling data sources with automatic change notifications via IChangeToken. Provides dependency injection integration with Microsoft.Extensions.DependencyInjection.</Description>
+    <PackageTags>collection;provider;data-source;change-token;change-notification;observable;polling;aggregation;composition;dependency-injection;microsoft-extensions</PackageTags>
+  </PropertyGroup>
+
+</Project>

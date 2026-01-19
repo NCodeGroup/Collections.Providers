@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <PropertyGroup>
+    <Description>Abstractions for building dynamic, change-aware collection providers. Defines interfaces for collection data sources with change token support, collection providers that aggregate multiple data sources, and factory contracts for creating static, observable, composite, and periodic polling data sources.</Description>
+    <PackageTags>collection;provider;data-source;change-token;change-notification;observable;polling;aggregation;composition;abstractions;interfaces</PackageTags>
+  </PropertyGroup>
+
+</Project>

@@ -20,4 +20,4 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-[assembly: InternalsVisibleTo("NCode.Buffers.Tests")]
+[assembly: InternalsVisibleTo("NCode.Collections.Providers.Tests")]
