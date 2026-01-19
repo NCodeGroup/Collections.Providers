@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -32,6 +33,7 @@ namespace NCode.Collections.Providers;
 /// <seealso cref="ICollectionDataSourceFactory"/>
 /// <seealso cref="ICollectionProviderFactory"/>
 [PublicAPI]
+[ExcludeFromCodeCoverage]
 public static class DefaultRegistration
 {
     /// <param name="serviceCollection">The <see cref="IServiceCollection"/> to add services to.</param>

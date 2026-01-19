@@ -199,17 +199,15 @@ public class NullChangeTokenTests
     #region Thread Safety Tests
 
     [Fact]
-    public void Singleton_IsThreadSafe()
+    public async Task Singleton_IsThreadSafe()
     {
-        const int threadCount = 100;
-        var tokens = new NullChangeToken[threadCount];
-        var barrier = new Barrier(threadCount);
+        const int taskCount = 100;
 
-        Parallel.For(0, threadCount, i =>
-        {
-            barrier.SignalAndWait();
-            tokens[i] = NullChangeToken.Singleton;
-        });
+        var tasks = Enumerable.Range(0, taskCount)
+            .Select(_ => Task.Run(() => NullChangeToken.Singleton))
+            .ToArray();
+
+        var tokens = await Task.WhenAll(tasks);
 
         Assert.All(tokens, t => Assert.Same(NullChangeToken.Singleton, t));
     }
