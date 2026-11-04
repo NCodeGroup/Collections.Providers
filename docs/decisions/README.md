@@ -60,5 +60,7 @@ override in `AGENTS.md`.
 
 ## Index
 
+This project has no decision records of its own yet. Records are numbered from 1000.
+
 | ADR | Decision | Status |
 | --- | --- | --- |

@@ -14,9 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated from project-template v0.41.0 to v0.61.2: build settings, analyzers, CI, Dependabot configuration and agent workflow files.
+- Updated from project-template v0.41.0 to v0.61.2: build settings, analyzers, CI, Dependabot configuration and agent workflow files. The public API is unchanged and is now tracked in `PublicAPI.Shipped.txt`.
+- `AssemblyVersion` now moves only with the major version (`<major>.0.0.0`) instead of following the package version, so a 1.x release keeps the assembly identity 1.0.0.0.
 
-## [1.0.0]
+## [1.0.0] - 2026-01-19
 
 Initial release.
 

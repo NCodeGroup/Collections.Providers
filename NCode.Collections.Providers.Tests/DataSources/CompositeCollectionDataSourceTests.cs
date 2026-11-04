@@ -69,7 +69,7 @@ public class CompositeCollectionDataSourceTests
     public async Task Constructor_WithDataSourcesAndAdditionalChangeTokenProducers_CreatesComposite()
     {
         var dataSource = new StaticCollectionDataSource<int>([1, 2, 3]);
-        var additionalProducer = new TestChangeTokenProducer();
+        using var additionalProducer = new TestChangeTokenProducer();
 
         await using var composite = new CompositeCollectionDataSource<int>(
             [dataSource],
@@ -406,7 +406,7 @@ public class CompositeCollectionDataSourceTests
     public async Task AdditionalChangeTokenProducer_TriggersRefresh_WhenItChanges()
     {
         var dataSource = new StaticCollectionDataSource<int>([1, 2, 3]);
-        var additionalProducer = new TestChangeTokenProducer();
+        using var additionalProducer = new TestChangeTokenProducer();
 
         await using var composite = new CompositeCollectionDataSource<int>(
             [dataSource],
