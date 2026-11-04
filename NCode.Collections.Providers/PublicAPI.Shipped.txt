@@ -1,0 +1,64 @@
+#nullable enable
+abstract NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.CreateCollection(System.Collections.Generic.IEnumerable<TItem>! items) -> TCollection
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.BaseCollectionProvider(NCode.Collections.Providers.ICollectionDataSource<TItem>! dataSource, bool owns = true) -> void
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.BaseCollectionProvider(NCode.Collections.Providers.ICollectionDataSource<TItem>! dataSource, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ISupportChangeToken!>! additionalChangeTokenProducers, bool owns = true) -> void
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.BaseCollectionProvider(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<TItem>!>! dataSources, bool owns = false) -> void
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.BaseCollectionProvider(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<TItem>!>! dataSources, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ISupportChangeToken!>! additionalChangeTokenProducers, bool owns = false) -> void
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.Collection.get -> TCollection
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.DisposeAsync() -> System.Threading.Tasks.ValueTask
+NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.CollectionProvider<TItem, TCollection>
+NCode.Collections.Providers.CollectionProvider<TItem, TCollection>.CollectionProvider(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, NCode.Collections.Providers.ICollectionDataSource<TItem>! dataSource, bool owns = true) -> void
+NCode.Collections.Providers.CollectionProvider<TItem, TCollection>.CollectionProvider(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<TItem>!>! dataSources, bool owns = false) -> void
+NCode.Collections.Providers.CollectionProviderExtensions
+NCode.Collections.Providers.CollectionProviderExtensions.extension<TItem>(NCode.Collections.Providers.ICollectionProvider<TItem, System.Collections.Generic.IEnumerable<TItem>!>!)
+NCode.Collections.Providers.CollectionProviderExtensions.extension<TItem>(NCode.Collections.Providers.ICollectionProvider<TItem, System.Collections.Generic.IEnumerable<TItem>!>!).AsDataSource() -> NCode.Collections.Providers.ICollectionDataSource<TItem>!
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.Collection.get -> System.Collections.Generic.IEnumerable<T>!
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.CombineFunc.get -> System.Func<System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<T>!>!, System.Collections.Generic.IEnumerable<T>!>!
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.CombineFunc.init -> void
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.CompositeCollectionDataSource(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<T>!>! dataSources, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ISupportChangeToken!>! additionalChangeTokenProducers) -> void
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.CompositeCollectionDataSource(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<T>!>! dataSources) -> void
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.DisposeAsync() -> System.Threading.Tasks.ValueTask
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.Owns.get -> bool
+NCode.Collections.Providers.DataSources.CompositeCollectionDataSource<T>.Owns.init -> void
+NCode.Collections.Providers.DataSources.ObservableCollectionDataSource<T>
+NCode.Collections.Providers.DataSources.ObservableCollectionDataSource<T>.Collection.get -> System.Collections.Generic.IEnumerable<T>!
+NCode.Collections.Providers.DataSources.ObservableCollectionDataSource<T>.Dispose() -> void
+NCode.Collections.Providers.DataSources.ObservableCollectionDataSource<T>.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.DataSources.ObservableCollectionDataSource<T>.ObservableCollectionDataSource(System.Collections.ObjectModel.ObservableCollection<T>! observableCollection, bool owns = true) -> void
+NCode.Collections.Providers.DataSources.PeriodicPollingCollectionDataSource<TItem, TState>
+NCode.Collections.Providers.DataSources.PeriodicPollingCollectionDataSource<TItem, TState>.Collection.get -> System.Collections.Generic.IEnumerable<TItem>!
+NCode.Collections.Providers.DataSources.PeriodicPollingCollectionDataSource<TItem, TState>.DisposeAsync() -> System.Threading.Tasks.ValueTask
+NCode.Collections.Providers.DataSources.PeriodicPollingCollectionDataSource<TItem, TState>.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.DataSources.PeriodicPollingCollectionDataSource<TItem, TState>.PeriodicPollingCollectionDataSource(TState state, System.Collections.Generic.IReadOnlyCollection<TItem>! initialCollection, System.TimeSpan refreshInterval, NCode.Collections.Providers.PeriodicPolling.RefreshCollectionAsyncDelegate<TItem, TState>! refreshCollectionAsync, NCode.Collections.Providers.PeriodicPolling.HandleExceptionAsyncDelegate? handleExceptionAsync = null) -> void
+NCode.Collections.Providers.DataSources.StaticCollectionDataSource<T>
+NCode.Collections.Providers.DataSources.StaticCollectionDataSource<T>.Collection.get -> System.Collections.Generic.IEnumerable<T>!
+NCode.Collections.Providers.DataSources.StaticCollectionDataSource<T>.Dispose() -> void
+NCode.Collections.Providers.DataSources.StaticCollectionDataSource<T>.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.DataSources.StaticCollectionDataSource<T>.StaticCollectionDataSource(System.Collections.Generic.IEnumerable<T>! collection, bool owns = true) -> void
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory.CreateComposite<T>(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<T>!>! dataSources, bool owns = false) -> NCode.Collections.Providers.IAsyncDisposableCollectionDataSource<T>!
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory.CreateObservable<T>(System.Collections.ObjectModel.ObservableCollection<T>! observableCollection, bool owns = true) -> NCode.Collections.Providers.IDisposableCollectionDataSource<T>!
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory.CreatePeriodicPolling<TItem, TState>(TState state, System.Collections.Generic.IReadOnlyCollection<TItem>! initialCollection, System.TimeSpan refreshInterval, NCode.Collections.Providers.PeriodicPolling.RefreshCollectionAsyncDelegate<TItem, TState>! refreshCollectionAsync, NCode.Collections.Providers.PeriodicPolling.HandleExceptionAsyncDelegate? handleExceptionAsync = null) -> NCode.Collections.Providers.IAsyncDisposableCollectionDataSource<TItem>!
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory.CreateStatic<T>(System.Collections.Generic.IEnumerable<T>! collection, bool owns = true) -> NCode.Collections.Providers.ICollectionDataSource<T>!
+NCode.Collections.Providers.DefaultCollectionDataSourceFactory.DefaultCollectionDataSourceFactory() -> void
+NCode.Collections.Providers.DefaultCollectionProviderFactory
+NCode.Collections.Providers.DefaultCollectionProviderFactory.Create<TItem, TCollection>(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, NCode.Collections.Providers.ICollectionDataSource<TItem>! dataSource, bool owns = true) -> NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>!
+NCode.Collections.Providers.DefaultCollectionProviderFactory.Create<TItem, TCollection>(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<TItem>!>! dataSources, bool owns = false) -> NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>!
+NCode.Collections.Providers.DefaultCollectionProviderFactory.DefaultCollectionProviderFactory() -> void
+NCode.Collections.Providers.DefaultRegistration
+NCode.Collections.Providers.DefaultRegistration.extension(Microsoft.Extensions.DependencyInjection.IServiceCollection!)
+NCode.Collections.Providers.DefaultRegistration.extension(Microsoft.Extensions.DependencyInjection.IServiceCollection!).AddCollectionProviders() -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+NCode.Collections.Providers.NullChangeToken
+NCode.Collections.Providers.NullChangeToken.ActiveChangeCallbacks.get -> bool
+NCode.Collections.Providers.NullChangeToken.HasChanged.get -> bool
+NCode.Collections.Providers.NullChangeToken.NullChangeToken() -> void
+NCode.Collections.Providers.NullChangeToken.RegisterChangeCallback(System.Action<object!>! callback, object? state) -> System.IDisposable!
+override NCode.Collections.Providers.CollectionProvider<TItem, TCollection>.CreateCollection(System.Collections.Generic.IEnumerable<TItem>! items) -> TCollection
+static NCode.Collections.Providers.CollectionProviderExtensions.AsDataSource<TItem>(this NCode.Collections.Providers.ICollectionProvider<TItem, System.Collections.Generic.IEnumerable<TItem>!>! provider) -> NCode.Collections.Providers.ICollectionDataSource<TItem>!
+static NCode.Collections.Providers.DefaultRegistration.AddCollectionProviders(this Microsoft.Extensions.DependencyInjection.IServiceCollection! serviceCollection) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static NCode.Collections.Providers.NullChangeToken.Singleton.get -> NCode.Collections.Providers.NullChangeToken!
+virtual NCode.Collections.Providers.BaseCollectionProvider<TItem, TCollection>.DisposeAsyncCore() -> System.Threading.Tasks.ValueTask

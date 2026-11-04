@@ -27,7 +27,7 @@ public class CompositeCollectionDataSourceTests
 {
     #region Test Helpers
 
-    private class TestChangeTokenProducer : ISupportChangeToken
+    private sealed class TestChangeTokenProducer : ISupportChangeToken, IDisposable
     {
         private CancellationTokenSource? _cancellationTokenSource;
 
@@ -40,6 +40,11 @@ public class CompositeCollectionDataSourceTests
         public void TriggerChange()
         {
             _cancellationTokenSource?.Cancel();
+        }
+
+        public void Dispose()
+        {
+            _cancellationTokenSource?.Dispose();
         }
     }
 
@@ -643,7 +648,7 @@ public class CompositeCollectionDataSourceTests
         Assert.Equal("two", collection[1].Name);
     }
 
-    private record TestItem(int Id, string Name);
+    private sealed record TestItem(int Id, string Name);
 
     #endregion
 }

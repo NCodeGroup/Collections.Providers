@@ -209,7 +209,7 @@ public class CollectionProviderExtensionsTests
         Assert.Equal("two", collection[1].Name);
     }
 
-    private record TestItem(int Id, string Name);
+    private sealed record TestItem(int Id, string Name);
 
     #endregion
 
