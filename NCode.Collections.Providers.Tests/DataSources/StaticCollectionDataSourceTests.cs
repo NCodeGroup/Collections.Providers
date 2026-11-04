@@ -370,7 +370,7 @@ public class StaticCollectionDataSourceTests
         Assert.Null(result[1]);
     }
 
-    private record TestItem(int Id, string Name);
+    private sealed record TestItem(int Id, string Name);
 
     #endregion
 

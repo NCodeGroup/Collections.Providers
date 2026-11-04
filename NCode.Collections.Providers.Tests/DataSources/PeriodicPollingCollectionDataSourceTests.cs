@@ -737,9 +737,9 @@ public class PeriodicPollingCollectionDataSourceTests
         Assert.Equal(100, receivedState?.MaxResults);
     }
 
-    private record TestItem(int Id, string Name);
+    private sealed record TestItem(int Id, string Name);
 
-    private record TestState(string ApiKey, int MaxResults);
+    private sealed record TestState(string ApiKey, int MaxResults);
 
     #endregion
 

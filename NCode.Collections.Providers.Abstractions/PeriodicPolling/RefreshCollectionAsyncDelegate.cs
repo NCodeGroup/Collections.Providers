@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 
 namespace NCode.Collections.Providers.PeriodicPolling;
@@ -84,6 +85,7 @@ namespace NCode.Collections.Providers.PeriodicPolling;
 /// <seealso cref="HandleExceptionAsyncDelegate"/>
 /// <seealso cref="ICollectionDataSourceFactory.CreatePeriodicPolling{TItem,TState}"/>
 [PublicAPI]
+[SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix", Justification = "Renaming a shipped public type would be a breaking change.")]
 public delegate ValueTask<RefreshCollectionResult<TItem>> RefreshCollectionAsyncDelegate<TItem, in TState>(
     TState state,
     IReadOnlyCollection<TItem> current,

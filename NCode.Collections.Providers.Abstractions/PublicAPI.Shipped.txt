@@ -1,0 +1,31 @@
+#nullable enable
+NCode.Collections.Providers.IAsyncDisposableCollectionDataSource<T>
+NCode.Collections.Providers.ICollectionDataSource<T>
+NCode.Collections.Providers.ICollectionDataSource<T>.Collection.get -> System.Collections.Generic.IEnumerable<T>!
+NCode.Collections.Providers.ICollectionDataSourceFactory
+NCode.Collections.Providers.ICollectionDataSourceFactory.CreateComposite<T>(System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<T>!>! dataSources, bool owns = false) -> NCode.Collections.Providers.IAsyncDisposableCollectionDataSource<T>!
+NCode.Collections.Providers.ICollectionDataSourceFactory.CreateObservable<T>(System.Collections.ObjectModel.ObservableCollection<T>! observableCollection, bool owns = true) -> NCode.Collections.Providers.IDisposableCollectionDataSource<T>!
+NCode.Collections.Providers.ICollectionDataSourceFactory.CreatePeriodicPolling<TItem, TState>(TState state, System.Collections.Generic.IReadOnlyCollection<TItem>! initialCollection, System.TimeSpan refreshInterval, NCode.Collections.Providers.PeriodicPolling.RefreshCollectionAsyncDelegate<TItem, TState>! refreshCollectionAsync, NCode.Collections.Providers.PeriodicPolling.HandleExceptionAsyncDelegate? handleExceptionAsync = null) -> NCode.Collections.Providers.IAsyncDisposableCollectionDataSource<TItem>!
+NCode.Collections.Providers.ICollectionDataSourceFactory.CreateStatic<T>(System.Collections.Generic.IEnumerable<T>! collection, bool owns = true) -> NCode.Collections.Providers.ICollectionDataSource<T>!
+NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>
+NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>.Collection.get -> TCollection
+NCode.Collections.Providers.ICollectionProviderFactory
+NCode.Collections.Providers.ICollectionProviderFactory.Create<TItem, TCollection>(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, NCode.Collections.Providers.ICollectionDataSource<TItem>! dataSource, bool owns = true) -> NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>!
+NCode.Collections.Providers.ICollectionProviderFactory.Create<TItem, TCollection>(System.Func<System.Collections.Generic.IEnumerable<TItem>!, TCollection>! collectionFactory, System.Collections.Generic.IEnumerable<NCode.Collections.Providers.ICollectionDataSource<TItem>!>! dataSources, bool owns = false) -> NCode.Collections.Providers.ICollectionProvider<TItem, TCollection>!
+NCode.Collections.Providers.IDisposableCollectionDataSource<T>
+NCode.Collections.Providers.INullChangeToken
+NCode.Collections.Providers.ISupportChangeToken
+NCode.Collections.Providers.ISupportChangeToken.GetChangeToken() -> Microsoft.Extensions.Primitives.IChangeToken!
+NCode.Collections.Providers.PeriodicPolling.HandleExceptionAsyncDelegate
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionAsyncDelegate<TItem, TState>
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>.IsChanged.get -> bool
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>.IsUnchanged.get -> bool
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>.NewCollection.get -> System.Collections.Generic.IReadOnlyCollection<TItem>?
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>.RefreshCollectionResult() -> void
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>.RefreshCollectionResult(System.Collections.Generic.IReadOnlyCollection<TItem>! newCollection) -> void
+NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResultFactory
+static NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResultFactory.Changed<TItem>(System.Collections.Generic.IReadOnlyCollection<TItem>! newCollection) -> NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>
+static NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResultFactory.Unchanged<TItem>() -> NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>
+virtual NCode.Collections.Providers.PeriodicPolling.HandleExceptionAsyncDelegate.Invoke(System.Runtime.ExceptionServices.ExceptionDispatchInfo! exception, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+virtual NCode.Collections.Providers.PeriodicPolling.RefreshCollectionAsyncDelegate<TItem, TState>.Invoke(TState state, System.Collections.Generic.IReadOnlyCollection<TItem>! current, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<NCode.Collections.Providers.PeriodicPolling.RefreshCollectionResult<TItem>>

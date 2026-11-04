@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.ExceptionServices;
 using JetBrains.Annotations;
 
@@ -74,6 +75,7 @@ namespace NCode.Collections.Providers.PeriodicPolling;
 /// <seealso cref="ICollectionDataSourceFactory.CreatePeriodicPolling{TItem,TState}"/>
 /// <seealso cref="ExceptionDispatchInfo"/>
 [PublicAPI]
+[SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix", Justification = "Renaming a shipped public type would be a breaking change.")]
 public delegate ValueTask HandleExceptionAsyncDelegate(
     ExceptionDispatchInfo exception,
     CancellationToken cancellationToken

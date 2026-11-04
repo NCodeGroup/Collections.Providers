@@ -27,7 +27,7 @@ public class BaseCollectionProviderTests
 {
     #region Test Helpers
 
-    private class TestCollectionProvider : BaseCollectionProvider<int, IReadOnlyList<int>>
+    private sealed class TestCollectionProvider : BaseCollectionProvider<int, IReadOnlyList<int>>
     {
         public int CreateCollectionCallCount { get; private set; }
 
@@ -64,7 +64,7 @@ public class BaseCollectionProviderTests
         }
     }
 
-    private class TestChangeTokenProducer : ISupportChangeToken
+    private sealed class TestChangeTokenProducer : ISupportChangeToken, IDisposable
     {
         private CancellationTokenSource? _cancellationTokenSource;
 
@@ -77,6 +77,11 @@ public class BaseCollectionProviderTests
         public void TriggerChange()
         {
             _cancellationTokenSource?.Cancel();
+        }
+
+        public void Dispose()
+        {
+            _cancellationTokenSource?.Dispose();
         }
     }
 
@@ -128,7 +133,7 @@ public class BaseCollectionProviderTests
     public async Task Constructor_WithSingleDataSourceAndAdditionalChangeTokenProducers_CreatesProvider()
     {
         var dataSource = new StaticCollectionDataSource<int>([1, 2, 3]);
-        var additionalProducer = new TestChangeTokenProducer();
+        using var additionalProducer = new TestChangeTokenProducer();
 
         await using var provider = new TestCollectionProvider(dataSource, [additionalProducer]);
 
@@ -164,7 +169,7 @@ public class BaseCollectionProviderTests
     {
         var dataSource1 = new StaticCollectionDataSource<int>([1, 2, 3]);
         var dataSource2 = new StaticCollectionDataSource<int>([4, 5, 6]);
-        var additionalProducer = new TestChangeTokenProducer();
+        using var additionalProducer = new TestChangeTokenProducer();
 
         await using var provider = new TestCollectionProvider([dataSource1, dataSource2], [additionalProducer]);
 
@@ -416,7 +421,7 @@ public class BaseCollectionProviderTests
     public async Task AdditionalChangeTokenProducer_TriggersRefresh_WhenItChanges()
     {
         var dataSource = new StaticCollectionDataSource<int>([1, 2, 3]);
-        var additionalProducer = new TestChangeTokenProducer();
+        using var additionalProducer = new TestChangeTokenProducer();
         await using var provider = new TestCollectionProvider(dataSource, [additionalProducer]);
         _ = provider.Collection;
         var originalToken = provider.GetChangeToken();

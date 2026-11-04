@@ -397,7 +397,7 @@ public class CollectionProviderTests
         Assert.Equal([1, 2, 3], collection);
     }
 
-    private record TestItem(int Id, string Name);
+    private sealed record TestItem(int Id, string Name);
 
     #endregion
 
